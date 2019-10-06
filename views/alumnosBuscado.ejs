@@ -1,8 +1,9 @@
 <% include partials/head.ejs %>
 
 <div class="container">
+        
     <div class="row">
-        <br>
+    <br>
         <div class="col-12 text-center">
 
             <h1> <%= title %> </h1>
@@ -22,22 +23,22 @@
 
                     </th>
                     <th>
-                        Domunento
-                    </th>
-                    <th>
-                        Domicilio
+                            Acciones
                     </th>
                 </tr>
                 
-                    <% for (var i = 0; i < alumnosConDni.length; i++) { %>
-                    <tr class="text-center">
-                    
-                    <td><%= alumnosConDni[i].nombre %></td>
-                    <td><%= alumnosConDni[i].apellido %></td>
-                    <td><%= alumnosConDni[i].documento %></td>
-                    <td><%= alumnosConDni[i].domicilio %></td>
+                    <td><%= alumno.nombre %></td>
+                    <td><%= alumno.apellido %></td>
+                    <td>
+                            <a style='text-decoration: none' href="/delete/<%= alumno.id %>" > 
+                                <i style='color:red' class="icon-trash"></i>
+                            </a>
+                            <a style='text-decoration: none' href="/update/<%= alumno.documento %>" > 
+                                <i style='color:blue;padding-left: 15px' class="icon-edit"></i>
+                            </a>
+                    </td>
                     </tr>    
-                    <% } %>
+                    
                 </table>
         </div> 
     </div>

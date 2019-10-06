@@ -8,12 +8,6 @@ const index = ( req , res, next ) => {
     })
 };
 
-const alumnosX = async(req, res,next) =>{
-	const alumn = await alumno.find({});
-	res.status(200).json(alumn);
-	
-};
-
 
 const alumnos = ( req , res ) => {
     
@@ -23,26 +17,21 @@ const alumnos = ( req , res ) => {
     })
 };
 
-const alumnosConDni = ( req , res, next ) => {
-    res.render('alumnosConDni',{
-		title : 'Listado de Alumnos Con DNI y Domicilio',
-		alumnosConDni : alumnoService._alumnos
-    })
+const alumnosFull = ( req , res, next ) => {
+  
+    try {
+            res.render('alumnosFull', {
+                title: 'Listado completo ',
+                alumno: alumnoService._alumnos
+    
+            })
+        
+        
+    } catch (ex) {
+        res.status(404).end();
+    }
 };
 
-const alumnosConFamiliares =( req , res, next ) => {
-    res.render('alumnoConFamiliares',{
-		title : 'Listado de Alumnos Con Familiares',
-		alumnosConFamiliares: alumnoService._alumnos
-    })
-};
-
-const alumnosFind =( req , res, next ) => {
-    res.render('alumnoConFamiliares',{
-		title : 'Listado de Alumnos Con Familiares',
-		alumnosConFamiliares: alumnoService._alumnos
-    })
-};
 
 const alumnosNew =( req , res, next ) => {
     res.render('nuevoAlumno',{
@@ -57,10 +46,29 @@ const buscar =  async (req, res) => {
 
     try {
         let alu = await alumnoService.getById(docu);
+       
+            res.render('alumnosBuscado', {
+                title: 'Se encontro al alumno con el número de documento ' + docu,
+                alumno: alu
+    
+            })
         
-        res.render('alumnosConID', {
-            title: 'Busqueda de ' + docu,
-            alumnosConID: alu
+        
+    } catch (ex) {
+        res.status(404).end();
+    }
+
+};
+
+const deleteAlumno = async (req, res) => {
+    
+    const id = req.params.id;
+
+    try {
+        let alu = await alumnoService.deleteById(req.params.id);
+            console.log(alu);
+        res.render('alumnoEliminado', {
+            mensaje: 'Se elimino correcatamente al alumno ' 
 
         })
     } catch (ex) {
@@ -71,24 +79,80 @@ const buscar =  async (req, res) => {
 
 };
 
-const deleteAlumno = 'Delete';
+const update = async (req, res) => {
+    
+    const form = req.body;
+   
+    try {
+        let alumno = await alumnoService.update(form);
+        
+        res.render('formUpdate', {
+            title : 'Se modifico los datos de ' + alumno.nombre ,
+            alumno: alumno
+            
 
-const actualizar =  'Actualizar';
+        })
+    } catch (ex) {
 
-const agregarAlumno = 'Agregar';
+        res.status(404).end();
+    }
+
+};;
+
+const agregarAlumno = async (req, res) => {
+    
+    const form = req.body;
+
+    try {
+        let alu = await alumnoService.add(form);
+        
+        res.render('nuevoAlumnoAgregado', {
+            title : 'Nuevo Alumno',
+            alumnos: alu
+            
+
+        })
+    } catch (ex) {
+
+        console.log(ex);
+        res.status(404).end();
+    }
+
+};
+
+const getUpdateAlumno = async (req, res) => {
+    
+    const documento = req.params.id;
+
+
+    try {
+        let alumno = await alumnoService.getById(documento);
+       
+            res.render('formUpdate', {
+                title: 'Modificar datos del alumno ' + alumno.nombre,
+                alumno: alumno
+    
+            })
+        
+        
+    } catch (ex) {
+
+        console.log(ex);
+        res.status(404).end();
+    }
+
+};
 
 
 
 module.exports = {
     index,
     alumnos,
-    alumnosConDni,
-	alumnosConFamiliares,
-	alumnosX,
-	deleteAlumno,
-	actualizar,
-	agregarAlumno,
-    alumnosFind,
+    alumnosFull,
+    deleteAlumno,
     alumnosNew,
-    buscar
+	update,
+	agregarAlumno,
+    buscar,
+    getUpdateAlumno
 }

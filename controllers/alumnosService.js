@@ -3,308 +3,97 @@ function ClientsService() {
 
     console.log('Init user service');
 
-    this._alumnos = [
-        {
-            id : 16295,
-            nombre : "KLEINER RODOLFO",
-            apellido : "ROMERO ALANYA",
-            documento : "52454024",
-            domicilio : "LAVALLE 2262",
-            nombreFamiliar : "Kleiner Abel",
-            apellidoFamiliar : "Romero Blas",
-            parentesco : "Padre"
-        },
-        {
-            id : 16295,
-            nombre : "KLEINER RODOLFO",
-            apellido : "ROMERO ALANYA",
-            documento : "52454024",
-            domicilio : "LAVALLE 2262",
-            nombreFamiliar : "ZETTY ANAIR",
-            apellidoFamiliar : "ALANYA VASQUEZ",
-            parentesco : "Madre"
-        },
-        {
-            id : 16999,
-            nombre : "angelica",
-            apellido : "merino",
-            documento : "94074014",
-            domicilio : "chilavet",
-            nombreFamiliar : "nicolasa",
-            apellidoFamiliar : "laime",
-            parentesco : "Madre"
-        },
-        {
-            id : 17730,
-            nombre : "Zoe Geraldine ",
-            apellido : "AYBAR Garcia",
-            documento : "53473258",
-            domicilio : "MANZANA 101 CASA 32",
-            nombreFamiliar : "NORMA ELIZABETH",
-            apellidoFamiliar : "GARCIA VERA",
-            parentesco : "Madre"
-        },
-        {
-            id : 17730,
-            nombre : "Zoe Geraldine ",
-            apellido : "AYBAR Garcia",
-            documento : "53473258",
-            domicilio : "MANZANA 101 CASA 32",
-            nombreFamiliar : "GERARDO RAMON ALBERTO",
-            apellidoFamiliar : "AYBAR",
-            parentesco : "Padre"
-        },
-        {
-            id : 17730,
-            nombre : "Zoe Geraldine ",
-            apellido : "AYBAR Garcia",
-            documento : "53473258",
-            domicilio : "MANZANA 101 CASA 32",
-            nombreFamiliar : "ZOE GERALDINE",
-            apellidoFamiliar : "AYBAR GARCIA",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 20182,
-            nombre : "Alejandro Fabian",
-            apellido : "Areco Alviso",
-            documento : "94950267",
-            domicilio : "mz 6 casa 12",
-            nombreFamiliar : "maxima",
-            apellidoFamiliar : "areco alviso",
-            parentesco : "Madre"
-        },
-        {
-            id : 20182,
-            nombre : "Alejandro Fabian",
-            apellido : "Areco Alviso",
-            documento : "94950267",
-            domicilio : "mz 6 casa 12",
-            nombreFamiliar : "Jesica Daiana",
-            apellidoFamiliar : "ARECO",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 29981,
-            nombre : "Andrés Emanuel",
-            apellido : "Ramos",
-            documento : "48280930",
-            domicilio : "Villa 31 bis manzana104 casa 104 retiro",
-            nombreFamiliar : "Natalia Mabel",
-            apellidoFamiliar : "Rojas",
-            parentesco : "Madre"
-        },
-        {
-            id : 29981,
-            nombre : "Andrés Emanuel",
-            apellido : "Ramos",
-            documento : "48280930",
-            domicilio : "Villa 31 bis manzana104 casa 104 retiro",
-            nombreFamiliar : "Julieta Daiana Anahí",
-            apellidoFamiliar : "Camacho Rojas",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 33978,
-            nombre : "Jazmin",
-            apellido : "Raubian",
-            documento : "49087405",
-            domicilio : "PAYSANDU 1832",
-            nombreFamiliar : "Lucia",
-            apellidoFamiliar : "Raubian",
-            parentesco : "Madre"
-        },
-        {
-            id : 45842,
-            nombre : "Sofia paz",
-            apellido : "Garcia",
-            documento : "49362408",
-            domicilio : "BELAUSTEGUI, LUIS, DR. 3125",
-            nombreFamiliar : "María victoria",
-            apellidoFamiliar : "Garcia",
-            parentesco : "Madre"
-        },
-        {
-            id : 47589,
-            nombre : "Bautista ricardo",
-            apellido : "Oroño",
-            documento : "53334715",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Lucrecia",
-            apellidoFamiliar : "Baez",
-            parentesco : "Madre"
-        },
-        {
-            id : 47589,
-            nombre : "Bautista ricardo",
-            apellido : "Oroño",
-            documento : "53334715",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Ricardo damian",
-            apellidoFamiliar : "Oroño",
-            parentesco : "Padre"
-        },
-        {
-            id : 47589,
-            nombre : "Bautista ricardo",
-            apellido : "Oroño",
-            documento : "53334715",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Ulises damian",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 47589,
-            nombre : "Bautista ricardo",
-            apellido : "Oroño",
-            documento : "53334715",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Zahira jazmin",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 47617,
-            nombre : "Zahira jazmin",
-            apellido : "Oroño",
-            documento : "52458119",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Lucrecia",
-            apellidoFamiliar : "Baez",
-            parentesco : "Madre"
-        },
-        {
-            id : 47617,
-            nombre : "Zahira jazmin",
-            apellido : "Oroño",
-            documento : "52458119",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Ricardo damian",
-            apellidoFamiliar : "Oroño",
-            parentesco : "Padre"
-        },
-        {
-            id : 47617,
-            nombre : "Zahira jazmin",
-            apellido : "Oroño",
-            documento : "52458119",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Ulises damian",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 47617,
-            nombre : "Zahira jazmin",
-            apellido : "Oroño",
-            documento : "52458119",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Bautista ricardo",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 47626,
-            nombre : "Ulises damian",
-            apellido : "Oroño",
-            documento : "48317710",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Lucrecia",
-            apellidoFamiliar : "Baez",
-            parentesco : "Madre"
-        },
-        {
-            id : 47626,
-            nombre : "Ulises damian",
-            apellido : "Oroño",
-            documento : "48317710",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Ricardo damian",
-            apellidoFamiliar : "Oroño",
-            parentesco : "Padre"
-        },
-        {
-            id : 47626,
-            nombre : "Ulises damian",
-            apellido : "Oroño",
-            documento : "48317710",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Bautista ricardo",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 47626,
-            nombre : "Ulises damian",
-            apellido : "Oroño",
-            documento : "48317710",
-            domicilio : "ALGARROBO 860",
-            nombreFamiliar : "Zahira jazmin",
-            apellidoFamiliar : "Oroño",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 49448,
-            nombre : "AMAYA AYLEN",
-            apellido : "POLO TORRES",
-            documento : "47960648",
-            domicilio : "SAN JUAN AV. 3030",
-            nombreFamiliar : "NIEVESA",
-            apellidoFamiliar : "TORRES COLQUE",
-            parentesco : "Madre"
-        },
-        {
-            id : 49448,
-            nombre : "AMAYA AYLEN",
-            apellido : "POLO TORRES",
-            documento : "47960648",
-            domicilio : "SAN JUAN AV. 3030",
-            nombreFamiliar : "AARON AXEL",
-            apellidoFamiliar : "POLO TORRES",
-            parentesco : "No Aplica"
-        },
-        {
-            id : 53614,
-            nombre : "santiago daniel",
-            apellido : "velasquez soto",
-            documento : "49123005",
-            domicilio : "MEDINA 1822",
-            nombreFamiliar : "emilio",
-            apellidoFamiliar : "velasquez choque",
-            parentesco : "Padre"
-        },
-        {
-            id : 53614,
-            nombre : "santiago daniel",
-            apellido : "velasquez soto",
-            documento : "49123005",
-            domicilio : "MEDINA 1822",
-            nombreFamiliar : "susana",
-            apellidoFamiliar : "soto huayllas",
-            parentesco : "Madre"
-        },
-        {
-            id : 56527,
-            nombre : "Briana",
-            apellido : "Cañete",
-            documento : "53473329",
-            domicilio : "Manzana 3 casa 53",
-            nombreFamiliar : "Mirian dolores",
-            apellidoFamiliar : "Cañete Benítez",
-            parentesco : "Madre"
-        },
-        {
-            id : 56527,
-            nombre : "Briana",
-            apellido : "Cañete",
-            documento : "53473329",
-            domicilio : "Manzana 3 casa 53",
-            nombreFamiliar : "Fernando exequiel",
-            apellidoFamiliar : "Benegas",
-            parentesco : "No Aplica"
-        }
-    ];
+    this._alumnos = [{
+        id: 1,
+        nombre: "Stanley",
+        apellido: "Anwell",
+        documento: 1,
+        domicilio: "7 Summer Ridge Road"
+      }, {
+        id: 2,
+        nombre: "Harvey",
+        apellido: "Pistol",
+        documento: 2,
+        domicilio: "3 Park Meadow Junction"
+      }, {
+        id: 3,
+        nombre: "Rolf",
+        apellido: "Lorie",
+        documento: 3,
+        domicilio: "109 Ruskin Alley"
+      }, {
+        id: 4,
+        nombre: "Fiorenze",
+        apellido: "Wilcocke",
+        documento: 4,
+        domicilio: "6 Kensington Park"
+      }, {
+        id: 5,
+        nombre: "Olin",
+        apellido: "Gelderd",
+        documento: 5,
+        domicilio: "1451 8th Crossing"
+      }, {
+        id: 6,
+        nombre: "Grannie",
+        apellido: "O' Ronan",
+        documento: 6,
+        domicilio: "0 Mccormick Pass"
+      }, {
+        id: 7,
+        nombre: "Valentijn",
+        apellido: "Atrill",
+        documento: 7,
+        domicilio: "18 1st Plaza"
+      }, {
+        id: 8,
+        nombre: "Carlin",
+        apellido: "Spelling",
+        documento: 8,
+        domicilio: "233 Westport Plaza"
+      }, {
+        id: 9,
+        nombre: "Lorenza",
+        apellido: "O'Leagham",
+        documento: 9,
+        domicilio: "0792 Wayridge Center"
+      }, {
+        id: 10,
+        nombre: "Addison",
+        apellido: "Softley",
+        documento: 10,
+        domicilio: "703 Del Sol Crossing"
+      }, {
+        id: 11,
+        nombre: "Kennith",
+        apellido: "Oiller",
+        documento: 11,
+        domicilio: "41089 Logan Street"
+      }, {
+        id: 12,
+        nombre: "Westleigh",
+        apellido: "Gascoyen",
+        documento: 12,
+        domicilio: "702 Carberry Pass"
+      }, {
+        id: 13,
+        nombre: "Annnora",
+        apellido: "Daveran",
+        documento: 13,
+        domicilio: "00445 Stephen Way"
+      }, {
+        id: 14,
+        nombre: "Rebeca",
+        apellido: "Cockshutt",
+        documento: 14,
+        domicilio: "7519 High Crossing Way"
+      }, {
+        id: 15,
+        nombre: "Merwin",
+        apellido: "Liepina",
+        documento: 15,
+        domicilio: "45 Crownhardt Hill"
+      }]
 
 };
 
@@ -353,15 +142,35 @@ ClientsService.prototype.getById = function (documento) {
 ClientsService.prototype.add = function (client) {
 
     this._alumnos.push(client);
+    return this._alumnos.find(c => c.documento == client.documento);
 };
+
+/**
+ * @param client
+ */
+ClientsService.prototype.update = function (client) {
+    
+     const alumno =  this._alumnos.find(c => c.id == client.id);
+     alumno['nombre'] = client.nombre;
+     alumno['apellido'] = client.apellido;
+     alumno['documento'] = client.documento;
+     alumno['domicilio'] = client.domicilio;
+     
+     return alumno;
+    
+};
+
 
 
 /**
  * @param id
  */
 ClientsService.prototype.deleteById = function (id) {
-
-    this._alumnos = this._alumnos.filter(c => c.id != req.params.id);
+    this._alumnos = this._alumnos.filter(c => c.id != id);
+     
+    const alumno = this._alumnos.find(c => c.id == id);
+    console.log(alumno);
+    //return alumno;
 };
 
 

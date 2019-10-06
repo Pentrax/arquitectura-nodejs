@@ -2,36 +2,37 @@
 <div class="container">
     <div class="row">
         <div class="page-header text-center">
-            <h3> Ingrese un nuevo alumno</h3>
+            <h3> <%= title %> </h3>
         </div>
     </div>
     <div class="col-12 col-md-10 col-lg-8">
             
-        <form class="card card-sm"  method="POST" action="alumno/new">
+        <form class="card card-sm"  method="POST" action="/alumno/update">
             <br>
+            <input type="hidden" name="id" value="<%= alumno.id %>">
             <div class="row">
                 <div class="col-6">
                         <label>Nombre</label>
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                <input type="text" name="nombre" value="<%= alumno.nombre %>" class="form-control" placeholder="Nombre">
                 </div>
                 
                 <div class="col-6">
                         <label>Apellido</label>
 
-                        <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                        <input type="text" name="apellido" value="<%= alumno.apellido %>" class="form-control" placeholder="Apellido">
                 </div>
               </div>
 
                 <div class="row">
                     <div class="col-6">
                             <label>Documento</label>
-                    <input type="number" name="documento" class="form-control" placeholder="ingrese un número de documento">
+                    <input type="number" name="documento" value="<%= alumno.documento %>" class="form-control" placeholder="ingrese un número de documento">
                     </div>
                     
                     <div class="col-6">
                         <label>Domicilio</label>
     
-                        <input type="text" name="domicilio" class="form-control" placeholder="Ingrese un domicilio">
+                        <input type="text" name="domicilio"  value="<%= alumno.domicilio %>" class="form-control" placeholder="Ingrese un domicilio">
                     </div>
                 </div>
                 <br>
