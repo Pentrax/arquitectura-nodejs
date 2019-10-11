@@ -1,10 +1,11 @@
 <% include partials/head.ejs %>
 <div class="container">
     <div class="row">
-        <div class="page-header text-center">
+        <div class="col-8 text-center" style="margin-bottom:20px">
             <h3> Ingrese un nuevo alumno</h3>
         </div>
     </div>
+    <div class="row">
     <div class="col-12 col-md-10 col-lg-8">
             
         <form class="card card-sm" id="nuevoAlumno" method="POST" action="/new">
@@ -37,7 +38,7 @@
                 <br>
                 <div class="row">
                     <div class="col text-center">
-
+                        <a href="/alumnos/full" class="btn btn-default"> Volver</a>
                         <button type="submit" class="btn btn-success"> Guardar</button>
                     </div>
                 </div>
@@ -45,5 +46,15 @@
         </form>
     </div>
 </div>
+</div>
 
 <% include partials/footer.ejs %>
+<style>
+label,
+input{
+    margin-left: 10px;
+}
+input{
+    max-width: 95%;
+}
+</style>

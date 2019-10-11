@@ -20,7 +20,7 @@ router.get('/',routeController.index );
 router.get('/alumnos/list', routeController.alumnos);
 
 //Muestra la lista completa de alumnos
-router.get('/alumnos/full', routeController.alumnosFull);
+router.get('/alumnos/full', routeController.listaCompletaDeAlumnos);
 
 // Carga el formulrio para crear un nuevo alumno
 router.get('/alumno/new',routeController.alumnosNew);
@@ -33,11 +33,12 @@ router.post('/new', routeController.agregarAlumno);
 
 // Borra un alumno por id
 router.get('/delete/:id', routeController.deleteAlumno);
+
 // Trae los datos del un alumno para cargarlos en el formulario
 router.get('/update/:id', routeController.getUpdateAlumno);
 
 // Actualiza los datos del alumno cargados en el formulario
-router.post('/alumno/update',routeController.update);
+router.post('/update',routeController.update);
 
 
 

@@ -157,7 +157,7 @@ ClientsService.prototype.add = function (client) {
 ClientsService.prototype.update = function (client) {
     
      const alumno =  this._alumnos.find(c => c.id == client.id);
-     alumno['id'] = str;
+     
      alumno['nombre'] = client.nombre;
      alumno['apellido'] = client.apellido;
      alumno['documento'] = client.documento;

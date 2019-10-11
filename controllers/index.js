@@ -17,11 +17,12 @@ const alumnos = ( req , res ) => {
     })
 };
 
-const alumnosFull = ( req , res, next ) => {
+const listaCompletaDeAlumnos = ( req , res, next ) => {
   
     try {
-            res.render('alumnosFull', {
+            res.render('listaCompletaDeAlumnos', {
                 title: 'Listado completo ',
+                mensaje: '',
                 alumno: alumnoService._alumnos
     
             })
@@ -46,7 +47,7 @@ const buscar =  async (req, res) => {
 
     if(docu ==''){
         let alu = await alumnoService.getAll();
-        res.render('alumnosFull', {
+        res.render('listaCompletaDeAlumnos', {
             title: 'Se encontro al alumno con el número de documento ' + docu,
             alumno: alu
 
@@ -81,10 +82,15 @@ const deleteAlumno = async (req, res) => {
     const id = req.params.id;
     
     try {
+        let alumno_a_eliminar = await alumnoService.getById(id);
         let alu = await alumnoService.deleteById(req.params.id);
-            console.log(alu);
-        res.render('alumnoEliminado', {
-            mensaje: 'Se elimino correcatamente al alumno ' 
+        let alumnos = await alumnoService.getAll();
+
+        res.render('listaCompletaDeAlumnos', {
+            title: 'Listado completo ',
+            mensaje: 'Se elimino correcatamente al alumno ' + alumno_a_eliminar.nombre + ' '+alumno_a_eliminar.apellido,
+            alumno: alumnos
+            
 
         })
     } catch (ex) {
@@ -105,7 +111,8 @@ const update = async (req, res) => {
         let alumno = await alumnoService.update(form);
         
         res.render('formUpdate', {
-            title : 'Se modifico los datos de ' + alumno.nombre ,
+            title : '',
+            mensaje: 'Se modifico los datos de ' + alumno.nombre + ' ' + alumno.apellido,
             alumno: alumno
             
 
@@ -127,10 +134,11 @@ const agregarAlumno = async (req, res) => {
     if(form.nombre != '' && form.apellido != '' && form.documento != ''){
         try {
             let alu = await alumnoService.add(form);
-            
-            res.render('nuevoAlumnoAgregado', {
+            let alumnos = await alumnoService.getAll();
+            res.render('listaCompletaDeAlumnos', {
                 title : 'Nuevo Alumno',
-                alumnos: alu
+                mensaje: 'Se agrego al nuevo alumno ' + alu.nombre + ' '+ alu.apellido,
+                alumno: alumnos
                 
     
             })
@@ -161,6 +169,7 @@ const getUpdateAlumno = async (req, res) => {
        
             res.render('formUpdate', {
                 title: 'Modificar datos del alumno ' + alumno.nombre,
+                mensaje: '',
                 alumno: alumno
     
             })
@@ -181,7 +190,7 @@ const getUpdateAlumno = async (req, res) => {
 module.exports = {
     index,
     alumnos,
-    alumnosFull,
+    listaCompletaDeAlumnos,
     deleteAlumno,
     alumnosNew,
 	update,

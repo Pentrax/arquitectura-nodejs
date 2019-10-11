@@ -1,13 +1,26 @@
 <% include partials/head.ejs %>
 <div class="container">
+        <% if(mensaje != '') {%>
+        
+            <div class="row">
+                <div class="col-8 text-center">
+                        <div class="alert alert-success" role="alert">
+                            <%= mensaje %>
+                        </div> 
+                </div>
+                    
+            </div>
+    
+    <% }else{ %>
     <div class="row">
-        <div class="page-header text-center">
+        <div class="col-8 text-center">
             <h3> <%= title %> </h3>
         </div>
     </div>
+    <% } %>
     <div class="col-12 col-md-10 col-lg-8">
             
-        <form class="card card-sm"  method="POST" action="/alumno/update">
+        <form class="card card-sm"  method="POST" action="/update">
             <br>
             <input type="hidden" name="id" value="<%= alumno.id %>">
             <div class="row">
@@ -38,7 +51,7 @@
                 <br>
                 <div class="row">
                     <div class="col text-center">
-
+                        <a href="/alumnos/full" class="btn btn-default"> Volver</a>
                         <button type="submit" class="btn btn-success"> Guardar</button>
                     </div>
                 </div>
@@ -48,3 +61,13 @@
 </div>
 
 <% include partials/footer.ejs %>
+
+<style>
+        label,
+        input{
+            margin-left: 10px;
+        }
+        input{
+            max-width: 95%;
+        }
+        </style>
