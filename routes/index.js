@@ -13,16 +13,30 @@ const alumnosService = require('../controllers/alumnosService');
 
 // Endpoints
 
+// Muestra el index de la app
 router.get('/',routeController.index );
+
+// Muestra un lista limitada de alumnos 
 router.get('/alumnos/list', routeController.alumnos);
+
+//Muestra la lista completa de alumnos
 router.get('/alumnos/full', routeController.alumnosFull);
+
+// Carga el formulrio para crear un nuevo alumno
 router.get('/alumno/new',routeController.alumnosNew);
 
+// Busca un alumno por nro de documento
+router.post('/buscar', routeController.buscar);
 
-router.post('/alumno/buscar', routeController.buscar);
-router.post('alumno/new', routeController.agregarAlumno);
+//Guarda un nnuevo alumno en el array
+router.post('/new', routeController.agregarAlumno);
+
+// Borra un alumno por id
 router.get('/delete/:id', routeController.deleteAlumno);
+// Trae los datos del un alumno para cargarlos en el formulario
 router.get('/update/:id', routeController.getUpdateAlumno);
+
+// Actualiza los datos del alumno cargados en el formulario
 router.post('/alumno/update',routeController.update);
 
 

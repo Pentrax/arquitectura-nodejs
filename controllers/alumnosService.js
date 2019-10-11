@@ -127,8 +127,8 @@ ClientsService.prototype.getById = function (documento) {
             
 
         } else {
-
-            reject(documento);
+            //console.log(alumno);
+            reject('error');
         }
 
     });
@@ -140,6 +140,12 @@ ClientsService.prototype.getById = function (documento) {
  * @param client
  */
 ClientsService.prototype.add = function (client) {
+  var _sym = 'abcdefghijklmnopqrstuvwxyz1234567890';
+  var str = '';
+  
+  str += _sym[parseInt(Math.random() * (_sym.length))];
+  
+    client['id'] = str;
 
     this._alumnos.push(client);
     return this._alumnos.find(c => c.documento == client.documento);
@@ -151,6 +157,7 @@ ClientsService.prototype.add = function (client) {
 ClientsService.prototype.update = function (client) {
     
      const alumno =  this._alumnos.find(c => c.id == client.id);
+     alumno['id'] = str;
      alumno['nombre'] = client.nombre;
      alumno['apellido'] = client.apellido;
      alumno['documento'] = client.documento;

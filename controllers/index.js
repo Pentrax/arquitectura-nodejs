@@ -44,26 +44,42 @@ const buscar =  async (req, res) => {
     
     const docu = req.body.dni;
 
-    try {
-        let alu = await alumnoService.getById(docu);
-       
-            res.render('alumnosBuscado', {
-                title: 'Se encontro al alumno con el número de documento ' + docu,
-                alumno: alu
-    
-            })
+    if(docu ==''){
+        let alu = await alumnoService.getAll();
+        res.render('alumnosFull', {
+            title: 'Se encontro al alumno con el número de documento ' + docu,
+            alumno: alu
+
+        });
+
+    }else{
+        try {
+            let alu = await alumnoService.getById(docu);
+            
+                res.render('alumnosBuscado', {
+                    title: 'Se encontro al alumno con el número de documento ' + docu,
+                    alumno: alu
         
-        
-    } catch (ex) {
-        res.status(404).end();
+                });
+            
+            
+        } catch (ex) {
+            
+            if (req.accepts('html')) {
+                res.render('404', { url: req.url });
+                return;
+            }
+        }
     }
+
+    
 
 };
 
 const deleteAlumno = async (req, res) => {
     
     const id = req.params.id;
-
+    
     try {
         let alu = await alumnoService.deleteById(req.params.id);
             console.log(alu);
@@ -73,8 +89,10 @@ const deleteAlumno = async (req, res) => {
         })
     } catch (ex) {
 
-        console.log(ex);
-        res.status(404).end();
+        if (req.accepts('html')) {
+            res.render('404', { url: req.url });
+            return;
+        }
     }
 
 };
@@ -94,7 +112,10 @@ const update = async (req, res) => {
         })
     } catch (ex) {
 
-        res.status(404).end();
+        if (req.accepts('html')) {
+            res.render('404', { url: req.url });
+            return;
+        }
     }
 
 };;
@@ -102,21 +123,31 @@ const update = async (req, res) => {
 const agregarAlumno = async (req, res) => {
     
     const form = req.body;
-
-    try {
-        let alu = await alumnoService.add(form);
         
-        res.render('nuevoAlumnoAgregado', {
-            title : 'Nuevo Alumno',
-            alumnos: alu
+    if(form.nombre != '' && form.apellido != '' && form.documento != ''){
+        try {
+            let alu = await alumnoService.add(form);
             
-
+            res.render('nuevoAlumnoAgregado', {
+                title : 'Nuevo Alumno',
+                alumnos: alu
+                
+    
+            })
+        } catch (ex) {
+    
+            if (req.accepts('html')) {
+                res.render('404', { url: req.url });
+                return;
+            }
+        }
+    }else{
+        res.render('nuevoAlumno',{
+            title : 'Agregue un nuevo alumno',
+            
         })
-    } catch (ex) {
-
-        console.log(ex);
-        res.status(404).end();
     }
+    
 
 };
 
@@ -137,8 +168,10 @@ const getUpdateAlumno = async (req, res) => {
         
     } catch (ex) {
 
-        console.log(ex);
-        res.status(404).end();
+        if (req.accepts('html')) {
+            res.render('404', { url: req.url });
+            return;
+        }
     }
 
 };
