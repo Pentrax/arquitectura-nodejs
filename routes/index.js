@@ -26,19 +26,22 @@ router.get('/alumnos/full', routeController.listaCompletaDeAlumnos);
 router.get('/alumno/new',routeController.alumnosNew);
 
 // Busca un alumno por nro de documento
-router.post('/buscar', routeController.buscar);
+router.get('/buscar', routeController.buscar);
 
 //Guarda un nnuevo alumno en el array
-router.post('/new', routeController.agregarAlumno);
+router.post('/alumno/guardar', routeController.agregarAlumno);
 
 // Borra un alumno por id
-router.get('/delete/:id', routeController.deleteAlumno);
+router.delete('/alumno/delete/:id', routeController.deleteAlumno);
+
+// Borra un alumno por id en el form
+router.get('/alumno/delete/:id', routeController.deleteAlumno);
 
 // Trae los datos del un alumno para cargarlos en el formulario
-router.get('/update/:id', routeController.getUpdateAlumno);
+router.get('/alumno/update/:id', routeController.getUpdateAlumno);
 
 // Actualiza los datos del alumno cargados en el formulario
-router.post('/update',routeController.update);
+router.post('/alumno/update',routeController.update);
 
 
 
