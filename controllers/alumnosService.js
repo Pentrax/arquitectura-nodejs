@@ -140,7 +140,8 @@ ClientsService.prototype.getById = function (documento) {
  * @param client
  */
 ClientsService.prototype.add = function (client) {
-  var _sym = 'abcdefghijklmnopqrstuvwxyz1234567890';
+  //var _sym = 'abcdefghijklmnopqrstuvwxyz1234567890';
+  var _sym = '123456778899090000';
   var str = '';
   
   str += _sym[parseInt(Math.random() * (_sym.length))];

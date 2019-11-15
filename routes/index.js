@@ -26,7 +26,7 @@ router.get('/alumnos/full', routeController.listaCompletaDeAlumnos);
 router.get('/alumno/new',routeController.alumnosNew);
 
 // Busca un alumno por nro de documento
-router.get('/buscar', routeController.buscar);
+router.post('/alumno/buscar', routeController.buscar);
 
 //Guarda un nnuevo alumno en el array
 router.post('/alumno/guardar', routeController.agregarAlumno);
