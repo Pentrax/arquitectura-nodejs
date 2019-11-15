@@ -44,7 +44,7 @@ const alumnosNew =( req , res, next ) => {
 const buscar =  async (req, res) => {
     
     const docu = req.body.dni;
-
+        console.log(docu);
     if(docu ==''){
         let alu = await alumnoService.getAll();
         res.render('listaCompletaDeAlumnos', {
